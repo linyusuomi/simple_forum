@@ -45,7 +45,7 @@ class PostController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('post_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('post'));
         }
 
         return $this->render('LinForumBundle:Post:new.html.twig', array(
