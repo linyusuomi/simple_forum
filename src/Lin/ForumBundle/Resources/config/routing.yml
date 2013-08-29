@@ -1,6 +1,6 @@
 # src/Ens/JobeetBundle/Resources/config/routing.yml
 LinForumBundle_post:
-    resource: "@LinForumBundle/Resources/config/routing/post.php"
+    resource: "@LinForumBundle/Resources/config/routing/post.yml"
     prefix: /post
     
 LinForumBundle_homepage:
