@@ -38,9 +38,10 @@ class PostController extends Controller
         $entity = new Post();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $entity->upload();
+            $entity->setCreatedAt(date_create(date()));
             $em->persist($entity);
             $em->flush();
 
@@ -169,6 +170,9 @@ class PostController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $entity->upload();
+            $entity->setCreatedAt($entity->getCreatedAt());
+            $entity->setUpdatedAt(date_create(date()));
             $em->flush();
 
             return $this->redirect($this->generateUrl('post_edit', array('id' => $id)));
@@ -220,4 +224,5 @@ class PostController extends Controller
             ->getForm()
         ;
     }
+
 }

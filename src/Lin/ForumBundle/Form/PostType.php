@@ -17,10 +17,8 @@ class PostType extends AbstractType
         $builder
             ->add('name')
             ->add('title')
-            ->add('image')
+            ->add('file', 'file', array('label' => 'Image', 'required' => true))
             ->add('content')
-            ->add('created_at')
-            ->add('updated_at')
         ;
     }
     

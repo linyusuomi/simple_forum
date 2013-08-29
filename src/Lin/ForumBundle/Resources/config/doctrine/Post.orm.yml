@@ -16,7 +16,7 @@ Lin\ForumBundle\Entity\Post:
       type: string
       length: 255
       nullable: true
-    image:
+    path:
       type: string
       length: 255
     content:

@@ -1,16 +1,72 @@
-{% extends '::base.html.twig' %}
+{% extends "LinForumBundle::layout.html.twig" %}
 
 {% block body -%}
-    <h1>Post edit</h1>
+<div class="container-fluid">
+<div class="row-fluid">
+     <div class="span2"></div>
+     <div class="span8">
+        {{ form_start(edit_form, {'attr': {'class': 'form-horizontal'}}) }}
+        <fieldset>
+          <div id="legend" class="">
+            <legend class="">Update post form</legend>
+          </div>  
+          <div class="control-group">
 
-    {{ form(edit_form) }}
+                <!-- Text input-->
+                <label class="control-label" for="input01">Name</label>
+                <div class="controls">
+                  {{ form_widget(edit_form.name) }}
+                </div>
+              </div>
 
+          <div class="control-group">
+
+                <!-- Text input-->
+                <label class="control-label" for="input01">Title</label>
+                <div class="controls">
+                  {{ form_widget(edit_form.title) }}
+                </div>
+              </div>
+
+          <div class="control-group">
+                <label class="control-label">Image</label>
+                <!-- File Upload -->
+                <div class="controls">
+                  {{ form_widget(edit_form.file) }}
+                </div>
+              </div>
+
+          <div class="control-group">
+
+                <!-- Textarea -->
+                <label class="control-label">Content</label>
+                <div class="controls">
+                  <div class="textarea">
+                        {{ form_widget(edit_form.content) }}
+                  </div>
+                </div>
+              </div>
+
+          <div class="control-group">
+                <label class="control-label">Button</label>
+
+                <!-- Button -->
+                <div class="controls">
+                  {{ form_widget(edit_form.submit, {'attr': {'class': 'btn btn-success'}}) }}
+                </div>
+          </div>
+        </fieldset>
+        {{ form_end(edit_form) }}
         <ul class="record_actions">
-    <li>
-        <a href="{{ path('post') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+        <li>
+            <a href="{{ path('post') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+        </ul>
+    </div>
+    </div>
+</div>
+</div>
 {% endblock %}
