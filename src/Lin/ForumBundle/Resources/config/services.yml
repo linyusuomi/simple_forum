@@ -1,0 +1,7 @@
+parameters:
+#    lin_forum.example.class: Lin\ForumBundle\Example
+
+services:
+#    lin_forum.example:
+#        class: %lin_forum.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

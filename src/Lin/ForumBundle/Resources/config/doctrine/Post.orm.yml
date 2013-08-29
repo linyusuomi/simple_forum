@@ -1,0 +1,32 @@
+# src/Lin/ForumBundle/Resources/config/doctrine/Post.orm.yml
+Lin\ForumBundle\Entity\Post:
+  type: entity
+  repositoryClass: Lin\ForumBundle\Repository\PostRepository
+  table: post
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 255
+      nullable: true
+    title:
+      type: string
+      length: 255
+      nullable: true
+    image:
+      type: string
+      length: 255
+    content:
+      type: text
+      nullable: true
+    created_at:
+      type: datetime
+    updated_at:
+      type: datetime
+      nullable: true
+  lifecycleCallbacks:
+    prePersist: [ setCreatedAtValue ]
+    preUpdate: [ setUpdatedAtValue ]     

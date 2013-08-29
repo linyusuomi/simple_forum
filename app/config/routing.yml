@@ -1,0 +1,4 @@
+lin_forum:
+    resource: "@LinForumBundle/Resources/config/routing.yml"
+    prefix:   /
+
