@@ -19,14 +19,29 @@ class PostController extends Controller
      * Lists all Post entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('LinForumBundle:Post')->findAll();
 
+        $entity = new Post();
+        $form = $this->createCreateForm($entity);
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $entity->upload();
+            $entity->setCreatedAt(date_create(date()));
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('post'));
+        }
+        
         return $this->render('LinForumBundle:Post:index.html.twig', array(
             'entities' => $entities,
+            'entity' => $entity,
+            'form'   => $form->createView(),
         ));
     }
     /**
