@@ -13,3 +13,5 @@ _configurator:
 _main:
     resource: routing.yml
 
+_acme_demo:
+    resource: "@AcmeDemoBundle/Resources/config/routing.yml"
